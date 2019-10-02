@@ -38,7 +38,7 @@ public class Main {
     }
 
     private static List<Integer> primeFactors(double numb){
-        ArrayList<Integer> primefacs = new ArrayList();
+        ArrayList<Integer> primefacs = new ArrayList<>();
 
 
         while(numb / 2 == Math.ceil(numb / 2)){
@@ -109,9 +109,8 @@ public class Main {
 
     }
 
-
     private static List<Integer> primeSieve(int max){
-        List<Integer> primes = new ArrayList<Integer>();
+        List<Integer> primes = new ArrayList<>();
         boolean[] prime = new boolean[max+1];
 
         for(int i=0;i<max;i++)
@@ -136,6 +135,19 @@ public class Main {
 
     private static int nthTriangle(int n){
         return n*(n+1)/2;
+    }
+
+    private static List<Integer> factors(int num){
+        ArrayList<Integer> facs = new ArrayList<>();
+
+        for(int i = 1; i < Math.ceil(Math.sqrt(num)) + 1; i++){
+            if(num % i == 0){
+                facs.add(i);
+                facs.add(num / i);
+            }
+        }
+
+        return facs;
     }
 
 
@@ -201,13 +213,12 @@ public class Main {
     }
 
     private static int problemFive(){
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        ArrayList<Integer> numbers = new ArrayList<>();
         for(int i = 1; i < 20; i++){
             numbers.add(i);
         }
         return lcm(numbers);
     }
-
 
     private static int problemSix(){
         int total = 0;
@@ -377,17 +388,25 @@ public class Main {
     }
 
     private static int problemTwleve(){
+        int tri = 0;
+        int size = 0;
+        int counter = 1;
 
+        while(size < 500){
+            tri = nthTriangle(counter);
+            size = factors(tri).size();
+            counter++;
+        }
 
-        return 0;
+        return tri;
     }
 
 
 
 
     public static void main(String[] args){
-        long startTime = System.nanoTime();
 
+        long startTime = System.nanoTime();
         System.out.println("problem 1 = " + problemOne());
         System.out.println("problem 2 = " + problemTwo());
         System.out.println("problem 3 = " + problemThree());
@@ -399,6 +418,7 @@ public class Main {
         System.out.println("Problem 9 = " + problemNine());
         System.out.println("Problem 10 = " + problemTen());
         System.out.println("Problem 11 = " + problemEleven());
+        System.out.println("Problem 12 = " + problemTwleve());
 
 
 
