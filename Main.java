@@ -136,6 +136,10 @@ public class Main {
         return primes;
     }
 
+    private static int nthTriangle(int n){
+        return n*(n+1)/2;
+    }
+
 
     private static int problemOne(){
         int current = 0;
@@ -377,6 +381,8 @@ public class Main {
     }
 
     private static int problemTwleve(){
+
+
         return 0;
     }
 
