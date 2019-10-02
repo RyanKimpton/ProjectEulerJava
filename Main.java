@@ -28,7 +28,7 @@ public class Main {
         char[] indNumbers = number.toCharArray();
         int leng = indNumbers.length;
 
-        for( int i = 0; i < Math.ceil(leng/2); i++){
+        for( int i = 0; i < leng/2 + 1; i++){
             if(indNumbers[i] != indNumbers[leng-i-1]){
 
                 return false;
@@ -38,7 +38,7 @@ public class Main {
     }
 
     private static List<Integer> primeFactors(double numb){
-        List<Integer> primefacs = new ArrayList();
+        ArrayList<Integer> primefacs = new ArrayList();
 
 
         while(numb / 2 == Math.ceil(numb / 2)){
@@ -67,34 +67,32 @@ public class Main {
 
     private static int lcm(ArrayList<Integer> num){
 
-        int numLeng = num.size();
-        int counter = 0;
+        int counter;
         double lcm = 1;
-        ArrayList<Integer> factors = new ArrayList();
-        List<Integer> currentFactors = new ArrayList<Integer>();
+        ArrayList<Integer> factors = new ArrayList<>();
+        List<Integer> currentFactors;
 
 
-        for( int i = 0; i < numLeng; i++){
-            factors.addAll(primeFactors(num.get(i)));
+        for (Integer value : num) {
+            factors.addAll(primeFactors(value));
         }
 
         int biggestFactor = Collections.max(factors);
 
         int[] frequency = new int[biggestFactor + 1];
 
-        for(int i = 0; i < numLeng; i++){
+        for (Integer integer : num) {
 
-            for(int j = 0; j < biggestFactor + 1; j++){
+            for (int j = 0; j < biggestFactor + 1; j++) {
                 counter = 0;
-                currentFactors = primeFactors(num.get(i));
+                currentFactors = primeFactors(integer);
 
-                for(int k = 0; k < currentFactors.size(); k++){
-                    if(currentFactors.get(k) == j){
-
+                for (Integer currentFactor : currentFactors) {
+                    if (currentFactor == j) {
                         counter++;
                     }
                 }
-                if(counter > frequency[j]){
+                if (counter > frequency[j]) {
                     frequency[j] = counter;
                 }
             }
@@ -112,15 +110,15 @@ public class Main {
     }
 
 
-    private static List primeSieve(int max){
-        List primes = new ArrayList<Integer>();
-        boolean prime[] = new boolean[max+1];
+    private static List<Integer> primeSieve(int max){
+        List<Integer> primes = new ArrayList<Integer>();
+        boolean[] prime = new boolean[max+1];
 
         for(int i=0;i<max;i++)
             prime[i] = true;
 
         for(int p = 2; p*p <=max; p++){
-            if(prime[p] == true){
+            if(prime[p]){
                 for(int i = p*p; i <= max; i += p) {
                     prime[i] = false;
                 }
@@ -128,7 +126,7 @@ public class Main {
         }
 
         for(int i = 2; i <= max; i++) {
-            if(prime[i] == true){
+            if(prime[i]){
                 primes.add(i);
             }
         }
@@ -183,9 +181,7 @@ public class Main {
         double number = 600851475143L;
         List<Integer> primes = primeFactors(number);
 
-        int biggest = primes.get(primes.size()-1);
-
-        return biggest;
+        return primes.get(primes.size()-1);
     }
 
     private static int problemFour(){
@@ -205,7 +201,7 @@ public class Main {
     }
 
     private static int problemFive(){
-        ArrayList numbers = new ArrayList<Integer>();
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
         for(int i = 1; i < 20; i++){
             numbers.add(i);
         }
@@ -305,12 +301,12 @@ public class Main {
     private static long problemTen(){
         int max = 2000000;
         long sum = 0;
-        List<Integer> primes = new ArrayList();
+        List<Integer> primes;
 
         primes = primeSieve(max);
 
-        for(int i = 0; i < primes.size(); i++){
-            sum += primes.get(i);
+        for (Integer prime : primes) {
+            sum += prime;
         }
 
         return sum;
@@ -339,7 +335,7 @@ public class Main {
                 "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48";
         String[] doubles = bigNum.split(" ");
         int max = 0;
-        int current = 0;
+        int current;
         int index;
 
         //Row start
@@ -350,28 +346,28 @@ public class Main {
                 //Decreasing diag:
                 if (i < 17 & j < 17) {
                     current = Integer.parseInt(doubles[index]) * Integer.parseInt(doubles[index + 21]) * Integer.parseInt(doubles[index + 42]) * Integer.parseInt(doubles[index + 63]);
-                    if (current > max) {
+                    if (max < current) {
                         max = current;
                     }
                 }
                 //Increasing diag:
                 if (i < 17 & j > 2) {
                     current = Integer.parseInt(doubles[index]) * Integer.parseInt(doubles[index - 19]) * Integer.parseInt(doubles[index - 38]) * Integer.parseInt(doubles[index - 57]);
-                    if (current > max) {
+                    if (max < current) {
                         max = current;
                     }
                 }
                 //Top to bottom:
                 if (j < 17) {
                     current = Integer.parseInt(doubles[index]) * Integer.parseInt(doubles[index + 20]) * Integer.parseInt(doubles[index + 40]) * Integer.parseInt(doubles[index + 60]);
-                    if (current > max) {
+                    if (max < current) {
                         max = current;
                     }
                 }
                 //Left to right
                 if (i < 17) {
                     current = Integer.parseInt(doubles[index]) * Integer.parseInt(doubles[index + 1]) * Integer.parseInt(doubles[index + 2]) * Integer.parseInt(doubles[index + 3]);
-                    if (current > max) {
+                    if (max < current) {
                         max = current;
                     }
                 }
