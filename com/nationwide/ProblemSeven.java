@@ -1,6 +1,12 @@
 package com.nationwide;
 
 public class ProblemSeven implements Runnable  {
+    private int value;
+
+    public int getValue() {
+        return value;
+    }
+
     public void run() {
         int counter = 0;
         int nth = 10001;
@@ -12,6 +18,6 @@ public class ProblemSeven implements Runnable  {
             prime++;
         }
         prime --;
-        System.out.println(prime);
+        value = (prime);
     }
 }

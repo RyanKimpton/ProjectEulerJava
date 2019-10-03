@@ -1,6 +1,12 @@
 package com.nationwide;
 
 public class ProblemSix implements Runnable  {
+    private int value;
+
+    public int getValue() {
+        return value;
+    }
+
     public void run() {
         int total = 0;
         int max = 100;
@@ -9,6 +15,6 @@ public class ProblemSix implements Runnable  {
                 total += 2*i*j;
             }
         }
-        System.out.println(total);
+        value = (total);
     }
 }

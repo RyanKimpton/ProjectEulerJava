@@ -1,6 +1,11 @@
 package com.nationwide;
 
 public class ProblemFour  implements Runnable {
+    private int value;
+
+    public int getValue() {
+        return value;
+    }
     public void run() {
         int biggest = 0;
 
@@ -14,6 +19,6 @@ public class ProblemFour  implements Runnable {
             }
         }
 
-        System.out.println(biggest);
+        value = (biggest);
     }
 }

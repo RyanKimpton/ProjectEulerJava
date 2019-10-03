@@ -1,6 +1,12 @@
 package com.nationwide;
 
 public class ProblemThirteen implements Runnable {
+    private int value;
+
+    public int getValue() {
+        return value;
+    }
+
     public void run(){
         String bignum = "37107287533902102798797998220837590246510135740250" +
                 "46376937677490009712648124896970078050417018260538" +
@@ -112,7 +118,7 @@ public class ProblemThirteen implements Runnable {
             }
         }
 
-        System.out.println(0);
+        value = sum;
 
     }
 }

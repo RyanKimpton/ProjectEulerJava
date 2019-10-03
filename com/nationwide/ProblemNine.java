@@ -1,6 +1,12 @@
 package com.nationwide;
 
 public class ProblemNine implements Runnable  {
+    private int value;
+
+    public int getValue() {
+        return value;
+    }
+
     public void run() {
         double a = 1;
         double b = 1;
@@ -18,6 +24,6 @@ public class ProblemNine implements Runnable  {
                 }
             }
         }
-        System.out.println( (int) (a*b*c));
+        value = ( (int) (a*b*c));
     }
 }
