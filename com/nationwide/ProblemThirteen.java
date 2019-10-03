@@ -112,7 +112,6 @@ public class ProblemThirteen implements Runnable {
         long sum = 0;
 
         for( int i = 0; i < 100; i++){
-            System.out.println(bignum.substring(i*50, i*50 +15));
             sum += Long.parseLong(bignum.substring(i*50, i*50 +15));
         }
         sum = Long.parseLong((""+sum).substring(0,10));
