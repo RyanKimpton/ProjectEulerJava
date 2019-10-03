@@ -1,9 +1,9 @@
 package com.nationwide;
 
 public class ProblemThirteen implements Runnable {
-    private int value;
+    private long value;
 
-    public int getValue() {
+    public long getValue() {
         return value;
     }
 
@@ -109,14 +109,13 @@ public class ProblemThirteen implements Runnable {
                 "20849603980134001723930671666823555245252804609722" +
                 "53503534226472524250874054075591789781264330331690";
 
-        char[] nums = bignum.toCharArray();
-        int sum = 0;
+        long sum = 0;
 
         for( int i = 0; i < 100; i++){
-            for(int j = 0; j < 14; j++){
-                sum += Character.getNumericValue(nums[i*50 + j]);
-            }
+            System.out.println(bignum.substring(i*50, i*50 +15));
+            sum += Long.parseLong(bignum.substring(i*50, i*50 +15));
         }
+        sum = Long.parseLong((""+sum).substring(0,10));
 
         value = sum;
 
