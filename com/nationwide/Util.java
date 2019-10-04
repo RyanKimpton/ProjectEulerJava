@@ -5,9 +5,9 @@ import java.math.BigInteger;
 import java.util.*;
 
 
-public class Util {
+class Util {
 
-    public static boolean isPrime(long numb){
+    static boolean isPrime(long numb){
 
         if( numb == 2){
             return true;
@@ -26,7 +26,7 @@ public class Util {
         return true;
     }
 
-    public static boolean isPalindrome(int numb){
+    static boolean isPalindrome(int numb){
         String number = Integer.toString(numb);
         char[] indNumbers = number.toCharArray();
         int leng = indNumbers.length;
@@ -40,7 +40,7 @@ public class Util {
         return true;
     }
 
-    public static List<Integer> primeFactors(double numb){
+    static List<Integer> primeFactors(double numb){
         ArrayList<Integer> primefacs = new ArrayList<>();
 
 
@@ -68,7 +68,7 @@ public class Util {
 
     }
 
-    public static int lcm(ArrayList<Integer> num){
+    static int lcm(ArrayList<Integer> num){
 
         int counter;
         double lcm = 1;
@@ -112,7 +112,7 @@ public class Util {
 
     }
 
-    public static List<Integer> primeSieve(int max){
+    static List<Integer> primeSieve(int max){
         List<Integer> primes = new ArrayList<>();
         boolean[] prime = new boolean[max+1];
 
@@ -136,11 +136,11 @@ public class Util {
         return primes;
     }
 
-    public static int nthTriangle(int n){
+    static int nthTriangle(int n){
         return n*(n+1)/2;
     }
 
-    public static List<Integer> factors(int num){
+    static List<Integer> factors(int num){
         ArrayList<Integer> facs = new ArrayList<>();
 
         for(int i = 1; i < Math.ceil(Math.sqrt(num)) + 1; i++){
@@ -153,7 +153,7 @@ public class Util {
         return facs;
     }
 
-    public static BigInteger factorial(int n){
+    static BigInteger factorial(int n){
         BigInteger fac = new BigInteger("1");
         for( int i = 1; i <= n; i++){
             fac = fac.multiply(new BigInteger(i + ""));
