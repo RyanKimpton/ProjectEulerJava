@@ -8,6 +8,7 @@ public class ProblemFourteen implements Runnable{
     }
 
     public void run() {
+
         int max = 0;
         int largeCollatz = 0;
 

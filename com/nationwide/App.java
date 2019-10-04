@@ -20,6 +20,7 @@ public class App {
         ProblemTwelve problemTwelve = new ProblemTwelve();
         ProblemThirteen problemThirteen = new ProblemThirteen();
         ProblemFourteen problemFourteen = new ProblemFourteen();
+        ProblemFifteen problemFifteen = new ProblemFifteen();
 
 
 
@@ -38,6 +39,7 @@ public class App {
         Thread thread11 = new Thread(problemTwelve);
         Thread thread12 = new Thread(problemThirteen);
         Thread thread13 = new Thread(problemFourteen);
+        Thread thread14 = new Thread(problemFifteen);
 
         thread.start();
         thread1.start();
