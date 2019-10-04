@@ -1,6 +1,7 @@
 package com.nationwide;
 
 import java.lang.Math;
+import java.math.BigInteger;
 import java.util.*;
 
 
@@ -152,11 +153,12 @@ public class Util {
         return facs;
     }
 
-    public static long factorial(int n){
-        int fac = 1;
+    public static BigInteger factorial(int n){
+        BigInteger fac = new BigInteger("1");
         for( int i = 1; i <= n; i++){
-            fac *= i;
+            fac = fac.multiply(new BigInteger(i + ""));
         }
+        System.out.println(fac);
         return fac;
     }
 

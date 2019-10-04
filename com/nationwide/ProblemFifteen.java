@@ -8,6 +8,6 @@ public class ProblemFifteen implements Runnable {
     }
 
     public void run() {
-        value = Util.factorial(40) / Math.pow( Util.factorial(20), 2);
+        value = Util.factorial(40).doubleValue() / Math.pow( Util.factorial(20).doubleValue(), 2);
     }
 }
