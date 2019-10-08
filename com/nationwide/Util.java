@@ -158,8 +158,82 @@ class Util {
         for( int i = 1; i <= n; i++){
             fac = fac.multiply(new BigInteger(i + ""));
         }
-        System.out.println(fac);
         return fac;
+    }
+
+    static int numberLength(int n){
+
+        //units
+        if(n < 10){
+            if( n == 0){
+                return 0;
+            }
+            if(n == 1 || n == 2 || n == 6){
+                return 3;
+            }
+            if(n == 4 || n == 5 || n == 9){
+                return 4;
+            }
+            if(n == 3 || n == 7 || n == 8){
+                return 5;
+            }
+        }
+
+        // tens
+
+        if( n < 100){
+
+
+
+            if(n == 11 || n == 12) {
+                return 6;
+            }
+
+            if(n == 15 || n == 16){
+                return 7;
+            }
+
+            if(n == 13 || n == 14 || n == 18 || n == 19){
+                return 8;
+            }
+
+            if(n == 17){
+                return 9;
+            }
+
+            if( n == 10){
+                return 3;
+            }
+
+            if( n == 20 || n == 30 || n == 80 || n == 90){
+                return 6;
+            }
+
+            if( n == 40 || n == 50 || n == 60){
+                return 5;
+            }
+
+            if ( n == 70){
+                return 7;
+            }
+
+            return numberLength(n % 10) + numberLength( n - n % 10);
+
+        }
+
+        // Hundreds
+
+        if( n < 1000){
+           if( n % 10 == 0 && n % 100 == 0){
+               System.out.println(n);
+               return numberLength(n/100) + 7;
+           }
+
+            return numberLength((n - (n % 100)) / 100 ) + numberLength(n - ((n - (n % 100)))) + 10;
+
+
+        }
+        return 11;
     }
 
 }

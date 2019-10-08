@@ -22,6 +22,7 @@ public class App {
         ProblemFourteen problemFourteen = new ProblemFourteen();
         ProblemFifteen problemFifteen = new ProblemFifteen();
         ProblemSixteen problemSixteen = new ProblemSixteen();
+        ProblemSeventeen problemSeventeen = new ProblemSeventeen();
 
         Thread thread = new Thread(problemOne);
         Thread thread1 = new Thread(problemTwo);
@@ -39,6 +40,7 @@ public class App {
         Thread thread13 = new Thread(problemFourteen);
         Thread thread14 = new Thread(problemFifteen);
         Thread thread15 = new Thread(problemSixteen);
+        Thread thread16 = new Thread(problemSeventeen);
 
         thread.start();
         thread1.start();
@@ -56,6 +58,7 @@ public class App {
         thread13.start();
         thread14.start();
         thread15.start();
+        thread16.start();
 
 
         long endTime = System.nanoTime();
@@ -92,7 +95,8 @@ public class App {
         System.out.println("Problem 15 " + problemFifteen.getValue());
         thread15.join();
         System.out.println("Problem 16 " + problemSixteen.getValue());
-
+        thread16.join();
+        System.out.println("Problem 17 " + problemSeventeen.getValue());
 
         double totalTime = (double) (endTime - startTime) / 1000000000;
         System.out.println("Time to run is: " + totalTime + " seconds");
