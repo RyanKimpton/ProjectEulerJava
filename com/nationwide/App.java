@@ -1,12 +1,5 @@
 package com.nationwide;
 
-import java.time.DayOfWeek;
-import java.util.Calendar;
-import java.time.*;
-import java.time.DayOfWeek;
-import java.util.HashMap;
-import java.util.Map;
-
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
@@ -105,15 +98,15 @@ public class App {
         thread13.join();
         System.out.println("Problem 14: " + problemFourteen.getValue());
         thread14.join();
-        System.out.println("Problem 15 " + problemFifteen.getValue());
+        System.out.println("Problem 15: " + problemFifteen.getValue());
         thread15.join();
-        System.out.println("Problem 16 " + problemSixteen.getValue());
+        System.out.println("Problem 16: " + problemSixteen.getValue());
         thread16.join();
-        System.out.println("Problem 17 " + problemSeventeen.getValue());
+        System.out.println("Problem 17: " + problemSeventeen.getValue());
         thread17.join();
-        System.out.println("Problem 18 " + problemEighteen.getValue());
+        System.out.println("Problem 18: " + problemEighteen.getValue());
         thread18.join();
-        System.out.println("Problem 19 " + problemNineteen.getValue());
+        System.out.println("Problem 19: " + problemNineteen.getValue());
 
 
         double totalTime = (double) (endTime - startTime) / 1000000000;
