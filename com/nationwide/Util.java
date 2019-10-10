@@ -148,8 +148,8 @@ class Util {
 
         for(int i = 1; i < Math.ceil(Math.sqrt(num)) + 1; i++){
             if(num % i == 0){
-                facs.add(i);
                 facs.add(num / i);
+                facs.add(i);
             }
         }
 
@@ -255,8 +255,7 @@ class Util {
         try {
             Date dt1 = format1.parse(date);
             DateFormat format2 = new SimpleDateFormat("EEEE");
-            String finalDay = format2.format(dt1);
-            return finalDay;
+            return format2.format(dt1);
         } catch (ParseException e) {
             System.out.println("Something is broken in dayOfTheWeek");
         }
