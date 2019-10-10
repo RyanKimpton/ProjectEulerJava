@@ -2,6 +2,9 @@ package com.nationwide;
 
 import java.lang.Math;
 import java.math.BigInteger;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -225,7 +228,6 @@ class Util {
 
         if( n < 1000){
            if( n % 10 == 0 && n % 100 == 0){
-               System.out.println(n);
                return numberLength(n/100) + 7;
            }
 
@@ -234,6 +236,33 @@ class Util {
 
         }
         return 11;
+    }
+
+    static ArrayList<Integer> trianglePath(ArrayList<Integer> upper, ArrayList<Integer> lower){
+        ArrayList<Integer> path = new ArrayList<>();
+
+        for( int i = 0; i < upper.size(); i++){
+            int current = upper.get(i);
+            path.add(Math.max(current + lower.get(i), current + lower.get(i + 1)));
+        }
+
+        return path;
+    }
+
+    static String dayOfTheWeek(int year, int month, int day){
+        String date = day + "/" + month + "/" + year;
+        SimpleDateFormat format1 = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date dt1 = format1.parse(date);
+            DateFormat format2 = new SimpleDateFormat("EEEE");
+            String finalDay = format2.format(dt1);
+            return finalDay;
+        } catch (ParseException e) {
+            System.out.println("Something is broken in dayOfTheWeek");
+        }
+
+        return "Error";
+
     }
 
 }

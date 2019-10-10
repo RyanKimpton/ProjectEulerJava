@@ -1,5 +1,12 @@
 package com.nationwide;
 
+import java.time.DayOfWeek;
+import java.util.Calendar;
+import java.time.*;
+import java.time.DayOfWeek;
+import java.util.HashMap;
+import java.util.Map;
+
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
@@ -23,6 +30,8 @@ public class App {
         ProblemFifteen problemFifteen = new ProblemFifteen();
         ProblemSixteen problemSixteen = new ProblemSixteen();
         ProblemSeventeen problemSeventeen = new ProblemSeventeen();
+        ProblemEighteen problemEighteen = new ProblemEighteen();
+        ProblemNineteen problemNineteen = new ProblemNineteen();
 
         Thread thread = new Thread(problemOne);
         Thread thread1 = new Thread(problemTwo);
@@ -41,6 +50,8 @@ public class App {
         Thread thread14 = new Thread(problemFifteen);
         Thread thread15 = new Thread(problemSixteen);
         Thread thread16 = new Thread(problemSeventeen);
+        Thread thread17 = new Thread(problemEighteen);
+        Thread thread18 = new Thread(problemNineteen);
 
         thread.start();
         thread1.start();
@@ -59,6 +70,8 @@ public class App {
         thread14.start();
         thread15.start();
         thread16.start();
+        thread17.start();
+        thread18.start();
 
 
         long endTime = System.nanoTime();
@@ -97,6 +110,11 @@ public class App {
         System.out.println("Problem 16 " + problemSixteen.getValue());
         thread16.join();
         System.out.println("Problem 17 " + problemSeventeen.getValue());
+        thread17.join();
+        System.out.println("Problem 18 " + problemEighteen.getValue());
+        thread18.join();
+        System.out.println("Problem 19 " + problemNineteen.getValue());
+
 
         double totalTime = (double) (endTime - startTime) / 1000000000;
         System.out.println("Time to run is: " + totalTime + " seconds");
