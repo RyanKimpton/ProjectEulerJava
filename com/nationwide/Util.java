@@ -1,7 +1,10 @@
 package com.nationwide;
 
 import java.lang.Math;
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -262,6 +265,16 @@ class Util {
 
         return "Error";
 
+    }
+
+    static BigDecimal nthFib(int n){
+        BigDecimal phi, minusPhi, phiN, minusPhiN;
+        phi = BigDecimal.valueOf((Math.sqrt(5) + 1)/2);
+        phiN = phi.pow(n);
+        minusPhi = phi.multiply(new BigDecimal(-1));
+        minusPhiN = (new BigDecimal(1)).divide(minusPhi.pow(n), 10, RoundingMode.HALF_UP);
+
+        return (phiN.subtract(minusPhiN)).divide(new BigDecimal(Math.sqrt(5)), RoundingMode.HALF_UP).round(new MathContext(1, RoundingMode.HALF_UP));
     }
 
 }
