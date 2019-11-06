@@ -11,18 +11,14 @@ public class ProblemTwentyFive implements Runnable {
         int flag = 0;
         int fib = 150;
         int pow;
-        int upper = 200;
-        int lower = 100;
-        String str = "";
+        String str;
 
 
 
         while(flag == 0){
             str = Util.nthFib(fib).toString();
-            pow = Integer.parseInt(str.substring(3, str.length()));
+            pow = Integer.parseInt(str.substring(3));
             if(pow <= 1000) {
-                lower *= 2;
-                upper *= 2;
                 fib *= 2;
             } else {
                 flag = 1;
@@ -31,7 +27,7 @@ public class ProblemTwentyFive implements Runnable {
 
         while(flag == 1){
             str = Util.nthFib(fib).toString();
-            pow = Integer.parseInt(str.substring(3, str.length()));
+            pow = Integer.parseInt(str.substring(3));
             if(pow == 999){
                 value = fib + 1;
                 flag = -1;
