@@ -28,7 +28,7 @@ public class ProblemTwentyFive implements Runnable {
         while(flag == 1){
             str = Util.nthFib(fib).toString();
             pow = Integer.parseInt(str.substring(3));
-            if(pow == 999){
+            if(pow == 998){
                 value = fib + 1;
                 flag = -1;
             }
