@@ -1,5 +1,7 @@
 package com.nationwide;
 
+import java.util.Collections;
+
 public class App {
 
     public static void main(String[] args) throws InterruptedException {
@@ -31,6 +33,7 @@ public class App {
         ProblemTwentyThree problemTwentyThree = new ProblemTwentyThree();
         ProblemTwentyFive problemTwentyFive = new ProblemTwentyFive();
         ProblemTwentySix problemTwentySix = new ProblemTwentySix();
+        ProblemTwentySeven problemTwentySeven = new ProblemTwentySeven();
 
 
         Thread thread = new Thread(problemOne);
@@ -58,6 +61,7 @@ public class App {
         Thread thread22 = new Thread(problemTwentyThree);
         Thread thread24 = new Thread(problemTwentyFive);
         Thread thread25 = new Thread(problemTwentySix);
+        Thread thread26 = new Thread(problemTwentySeven);
 
 
         thread.start();
@@ -85,6 +89,7 @@ public class App {
         thread22.start();
         thread24.start();
         thread25.start();
+        thread26.start();
 
 
         thread.join();
@@ -137,6 +142,8 @@ public class App {
         System.out.println("Problem 25: " + problemTwentyFive.getValue());
         thread25.join();
         System.out.println("Problem 26: " + problemTwentySix.getValue());
+        thread26.join();
+        System.out.println("Problem 27: " + problemTwentySeven.getValue());
 
         long endTime = System.nanoTime();
         double totalTime = (double) (endTime - startTime) / 1000000000;
