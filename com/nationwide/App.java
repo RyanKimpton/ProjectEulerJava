@@ -135,7 +135,7 @@ public class App {
         System.out.println("Problem 23: " + problemTwentyThree.getValue());
         thread24.join();
         System.out.println("Problem 25: " + problemTwentyFive.getValue());
-        thread.join();
+        thread25.join();
         System.out.println("Problem 26: " + problemTwentySix.getValue());
 
         long endTime = System.nanoTime();
