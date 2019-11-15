@@ -277,4 +277,26 @@ class Util {
         return (phiN.subtract(minusPhiN)).divide(new BigDecimal(Math.sqrt(5)), RoundingMode.HALF_UP).round(new MathContext(1, RoundingMode.HALF_UP));
     }
 
+    static int decimalCycleLength(int n){
+        //Pre logic input editing
+        while(n % 2 == 0){
+            n /= 2;
+        }
+
+        while(n % 5 == 0){
+            n /= 5;
+        }
+
+        int mod = 10 % n;
+        int currentMod = mod;
+        int length = 1;
+
+        while(true){
+            if(currentMod == 0 || currentMod == 1){
+                return length;
+            }
+            currentMod = (currentMod * mod) % n;
+            length ++;
+        }
+    }
 }
