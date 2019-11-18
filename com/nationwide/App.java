@@ -36,6 +36,7 @@ public class App {
         ProblemTwentySeven problemTwentySeven = new ProblemTwentySeven();
         ProblemTwentyEight problemTwentyEight = new ProblemTwentyEight();
         ProblemTwentyNine problemTwentyNine = new ProblemTwentyNine();
+        ProblemThirty problemThirty = new ProblemThirty();
 
 
         Thread thread = new Thread(problemOne);
@@ -66,6 +67,7 @@ public class App {
         Thread thread26 = new Thread(problemTwentySeven);
         Thread thread27 = new Thread(problemTwentyEight);
         Thread thread28 = new Thread(problemTwentyNine);
+        Thread thread29 = new Thread(problemThirty);
 
         thread.start();
         thread1.start();
@@ -95,6 +97,7 @@ public class App {
         thread26.start();
         thread27.start();
         thread28.start();
+        thread29.start();
 
 
         thread.join();
@@ -153,6 +156,8 @@ public class App {
         System.out.println("Problem 28: " + problemTwentyEight.getValue());
         thread28.join();
         System.out.println("Problem 29: " + problemTwentyNine.getValue());
+        thread29.join();
+        System.out.println("Problem 30: " + problemThirty.getValue());
 
         long endTime = System.nanoTime();
         double totalTime = (double) (endTime - startTime) / 1000000000;
