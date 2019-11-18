@@ -14,8 +14,6 @@ public class ProblemTwentyEight implements Runnable {
         for( int spiralLevel = 1; spiralLevel <= 1000; spiralLevel += 2){
             int squareSquare = square*square;
             int squareSquarePlus = (square+1)*(square+1);
-            System.out.println(squareSquare);
-            System.out.println(squareSquarePlus);
             total += (squareSquare) + (squareSquare - spiralLevel) + (squareSquarePlus) + (squareSquarePlus - spiralLevel);
             square+=2;
         }
