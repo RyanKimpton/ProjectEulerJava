@@ -1,6 +1,5 @@
 package com.nationwide;
 
-import java.lang.Math;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -8,7 +7,10 @@ import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 
 class Util {
@@ -298,5 +300,9 @@ class Util {
             currentMod = (currentMod * mod) % n;
             length ++;
         }
+    }
+
+    static boolean ninePandigital(String n){
+        return n.contains("1") && n.contains("2") && n.contains("3") && n.contains("4") && n.contains("5") && n.contains("6") && n.contains("7") && n.contains("8") && n.contains("9");
     }
 }
