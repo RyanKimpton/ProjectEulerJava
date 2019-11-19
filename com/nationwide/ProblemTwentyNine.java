@@ -26,7 +26,6 @@ public class ProblemTwentyNine implements Runnable {
                 }
             }
         }
-        System.out.println(powers);
         value = powers.size();
     }
 }
