@@ -21,8 +21,11 @@ public class ProblemThirtyTwo implements Runnable {
                 //String representation for checking if it is pandigital
                 String niner = "" + total + mult1 + mult2;
                 if(niner.length() == 9){
+                    //For number to be 9 pandigital it must be of length 9
                     if(Util.ninePandigital(niner)){
+                        //Number is pandigital
                         if(!added.contains(total)){
+                            //We haven't already counted this number
                             sum += total;
                             added.add(total);
                         }

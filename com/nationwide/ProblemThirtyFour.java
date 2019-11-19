@@ -1,6 +1,5 @@
 package com.nationwide;
 
-import java.math.BigInteger;
 
 public class ProblemThirtyFour implements Runnable {
     private int value;

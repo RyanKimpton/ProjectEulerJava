@@ -41,6 +41,5 @@ public class ProblemThirtyThree implements Runnable {
         lcmArray.add((int) superDenom);
         double gcd = superNumer*superDenom / Util.lcm(lcmArray);
         value = superDenom / gcd;
-        System.out.println(superNumer + "/" + superDenom);
     }
 }
