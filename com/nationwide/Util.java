@@ -169,6 +169,15 @@ class Util {
         return fac;
     }
 
+    static int smallFactorial(int n){
+        //Lightweight function for finding small factorial values that don't need to use BigInteger
+        int fac = 1;
+        for( int i = 1; i <= n; i++){
+            fac = fac * i;
+        }
+        return fac;
+    }
+
     static int numberLength(int n){
 
         //units
@@ -304,5 +313,25 @@ class Util {
 
     static boolean ninePandigital(String n){
         return n.contains("1") && n.contains("2") && n.contains("3") && n.contains("4") && n.contains("5") && n.contains("6") && n.contains("7") && n.contains("8") && n.contains("9");
+    }
+    static double func(double x){
+        //function only used when called in newtonsMethod below
+        return Math.pow(10.0, x) - 36288 * x;
+    }
+
+    private static double derivativeFunc(double x){
+        //function only used when called in newtonsMethod below
+        return Math.pow(10, x)*Math.log(10) - 36288;
+    }
+
+    private static double newtonsMethod(double n){
+        double h = func(n) / derivativeFunc(n);
+
+        while(Math.abs(h) >= 0.0001){
+            h = func(n) / derivativeFunc(n);
+            n -= h;
+        }
+
+        return n;
     }
 }
