@@ -41,20 +41,19 @@ class Util {
     /**
      * Function to check if a given number is a palindrome
      * @param numb the number to test
+     * @param base
      * @return Returns true only if numb is a palindrome
      */
-    static boolean isPalindrome(int numb){
-        String number = Integer.toString(numb);
-        char[] indNumbers = number.toCharArray();
-        int leng = indNumbers.length;
+    static boolean isPalindrome(int numb, int base){
+        int reverse = 0;
+        int temp = numb;
 
-        for( int i = 0; i < leng/2 + 1; i++){
-            if(indNumbers[i] != indNumbers[leng-i-1]){
-
-                return false;
-            }
+        while(temp > 0){
+            reverse = base * reverse + temp % base;
+            temp /= base;
         }
-        return true;
+
+        return numb == reverse;
     }
 
     /**

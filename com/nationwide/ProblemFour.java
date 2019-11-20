@@ -11,7 +11,7 @@ public class ProblemFour  implements Runnable {
 
         for(int i = 100; i<999; i++){
             for(int j = i; j<999; j++){
-                if( Util.isPalindrome(i*j)){
+                if( Util.isPalindrome(i*j, 10)){
                     if(i*j > biggest){
                         biggest = i*j;
                     }
