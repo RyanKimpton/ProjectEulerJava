@@ -14,7 +14,11 @@ import java.util.List;
 
 
 class Util {
-
+    /**
+     * Function to check if a given number is prime
+     * @param numb The number to be prime tested
+     * @return Returns true only if numb is prime
+     */
     static boolean isPrime(long numb){
 
         if( numb == 2){
@@ -34,6 +38,11 @@ class Util {
         return true;
     }
 
+    /**
+     * Function to check if a given number is a palindrome
+     * @param numb the number to test
+     * @return Returns true only if numb is a palindrome
+     */
     static boolean isPalindrome(int numb){
         String number = Integer.toString(numb);
         char[] indNumbers = number.toCharArray();
@@ -48,6 +57,11 @@ class Util {
         return true;
     }
 
+    /**
+     * Function that will return a list of all prime factors of a number 1 is not included, numb if prime will be
+     * @param numb the number to find the prime factors of
+     * @return Returns a List of all prime factors
+     */
     static List<Integer> primeFactors(double numb){
         ArrayList<Integer> primefacs = new ArrayList<>();
 
@@ -76,6 +90,11 @@ class Util {
 
     }
 
+    /**
+     * Function to find the lowest common multiple of all numbers in a list
+     * @param num A list of numbers to find the LCM of
+     * @return Returns the integer value of the LCM
+     */
     static int lcm(ArrayList<Integer> num){
 
         int counter;
@@ -120,6 +139,11 @@ class Util {
 
     }
 
+    /**
+     * Function to find all the prime numbers up but NOT INCLUDING a given value
+     * @param max The upper bound of the primes to find
+     * @return Returns a list of all primes up to max
+     */
     static List<Integer> primeSieve(int max){
         List<Integer> primes = new ArrayList<>();
         boolean[] prime = new boolean[max+1];
@@ -144,10 +168,22 @@ class Util {
         return primes;
     }
 
+    /**
+     * A simple function to return the nth triangular number, this is the same as the sum from 1 to n
+     * @param n The index of the triangular number to find
+     * @return The nth triangular number
+     */
     static int nthTriangle(int n){
         return n*(n+1)/2;
     }
 
+    /**
+     * A function to create a list of all the factors of a number. The list is not returned in order, 1 and the number
+     * are both returned
+     * @param num The number to find the factors of
+     * @return An unordered list of all the factors of a number. num is always the first number in the list, 1 is the
+     * second
+     */
     static List<Integer> factors(int num){
         ArrayList<Integer> facs = new ArrayList<>();
 
@@ -161,6 +197,12 @@ class Util {
         return facs;
     }
 
+    /**
+     * A function to find large factorials through the use of BigInteger. To be used when the factorial being found
+     * is greater than
+     * @param n
+     * @return
+     */
     static BigInteger factorial(int n){
         BigInteger fac = new BigInteger("1");
         for( int i = 1; i <= n; i++){
@@ -314,7 +356,8 @@ class Util {
     static boolean ninePandigital(String n){
         return n.contains("1") && n.contains("2") && n.contains("3") && n.contains("4") && n.contains("5") && n.contains("6") && n.contains("7") && n.contains("8") && n.contains("9");
     }
-    static double func(double x){
+
+    private static double func(double x){
         //function only used when called in newtonsMethod below
         return Math.pow(10.0, x) - 36288 * x;
     }
@@ -324,7 +367,7 @@ class Util {
         return Math.pow(10, x)*Math.log(10) - 36288;
     }
 
-    private static double newtonsMethod(double n){
+    static double newtonsMethod(double n){
         double h = func(n) / derivativeFunc(n);
 
         while(Math.abs(h) >= 0.0001){
@@ -333,5 +376,54 @@ class Util {
         }
 
         return n;
+    }
+
+    static String stringRotator(String s, int offset){
+        int i = offset % s.length();
+        return s.substring(i) + s.substring(0, i);
+    }
+
+    static int length(int n){
+        if (n < 100000){
+            // 5 or less
+            if (n < 100){
+                // 1 or 2
+                if (n < 10)
+                    return 1;
+                else
+                    return 2;
+            }else{
+                // 3 or 4 or 5
+                if (n < 1000)
+                    return 3;
+                else{
+                    // 4 or 5
+                    if (n < 10000)
+                        return 4;
+                    else
+                        return 5;
+                }
+            }
+        } else {
+            // 6 or more
+            if (n < 10000000) {
+                // 6 or 7
+                if (n < 1000000)
+                    return 6;
+                else
+                    return 7;
+            } else {
+                // 8 to 10
+                if (n < 100000000)
+                    return 8;
+                else {
+                    // 9 or 10
+                    if (n < 1000000000)
+                        return 9;
+                    else
+                        return 10;
+                }
+            }
+        }
     }
 }
