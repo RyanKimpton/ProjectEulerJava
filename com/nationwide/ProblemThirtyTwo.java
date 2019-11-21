@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//TODO performance improvements
 public class ProblemThirtyTwo implements Runnable {
     private int value;
 
