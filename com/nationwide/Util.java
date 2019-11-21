@@ -40,8 +40,8 @@ class Util {
 
     /**
      * Function to check if a given number is a palindrome
-     * @param numb the number to test
-     * @param base
+     * @param numb the number to test in base 10
+     * @param base the base of the number system you want to check in
      * @return Returns true only if numb is a palindrome
      */
     static boolean isPalindrome(int numb, int base){
@@ -198,9 +198,9 @@ class Util {
 
     /**
      * A function to find large factorials through the use of BigInteger. To be used when the factorial being found
-     * is greater than
-     * @param n
-     * @return
+     * is greater than 20
+     * @param n the number to find n!
+     * @return the factorial of n
      */
     static BigInteger factorial(int n){
         BigInteger fac = new BigInteger("1");
@@ -210,6 +210,12 @@ class Util {
         return fac;
     }
 
+    /**
+     * A lighter function used to calculate small factorials up to 19! without using Big Integer leading to improved
+     * performance
+     * @param n the number to find n!
+     * @return the factorial of n
+     */
     static int smallFactorial(int n){
         //Lightweight function for finding small factorial values that don't need to use BigInteger
         int fac = 1;
@@ -219,7 +225,13 @@ class Util {
         return fac;
     }
 
-    static int numberLength(int n){
+    /**
+     * A function to find the length of a numbers English representation. Note that this is only for numbers up to 1000
+     * and should not be used for numbers higher than that but can easily be expanded.
+     * @param n The number to find the length of the name of
+     * @return The length of the numbers English representation
+     */
+    static int numberWordLength(int n){
 
         //units
         if(n < 10){
@@ -275,7 +287,7 @@ class Util {
                 return 7;
             }
 
-            return numberLength(n % 10) + numberLength( n - n % 10);
+            return numberWordLength(n % 10) + numberWordLength( n - n % 10);
 
         }
 
@@ -283,16 +295,22 @@ class Util {
 
         if( n < 1000){
            if( n % 10 == 0 && n % 100 == 0){
-               return numberLength(n/100) + 7;
+               return numberWordLength(n/100) + 7;
            }
 
-            return numberLength((n - (n % 100)) / 100 ) + numberLength(n - ((n - (n % 100)))) + 10;
+            return numberWordLength((n - (n % 100)) / 100 ) + numberWordLength(n - ((n - (n % 100)))) + 10;
 
 
         }
         return 11;
     }
 
+    /**
+     * A function that is used to find the highest sum path through a triangle of digits.
+     * @param upper
+     * @param lower
+     * @return
+     */
     static ArrayList<Integer> trianglePath(ArrayList<Integer> upper, ArrayList<Integer> lower){
         ArrayList<Integer> path = new ArrayList<>();
 
