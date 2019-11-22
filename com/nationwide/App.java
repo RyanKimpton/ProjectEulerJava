@@ -44,6 +44,7 @@ public class App {
         ProblemThirtyFive problemThirtyFive = new ProblemThirtyFive();
         ProblemThirtySix problemThirtySix = new ProblemThirtySix();
         ProblemThirtySeven problemThirtySeven = new ProblemThirtySeven();
+        ProblemThirtyEight problemThirtyEight = new ProblemThirtyEight();
 
         Thread thread = new Thread(problemOne);
         Thread thread1 = new Thread(problemTwo);
@@ -81,6 +82,7 @@ public class App {
         Thread thread34 = new Thread(problemThirtyFive);
         Thread thread35 = new Thread(problemThirtySix);
         Thread thread36 = new Thread(problemThirtySeven);
+        Thread thread37 = new Thread(problemThirtyEight);
 
         thread.start();
         thread1.start();
@@ -118,6 +120,7 @@ public class App {
         thread34.start();
         thread35.start();
         thread36.start();
+        thread37.start();
 
 
         thread.join();
@@ -192,6 +195,8 @@ public class App {
         System.out.println("Problem 36: " + problemThirtySix.getValue());
         thread36.join();
         System.out.println("Problem 37: " + problemThirtySeven.getValue());
+        thread37.join();
+        System.out.println("Problem 38: " + problemThirtyEight.getValue());
 
         long endTime = System.nanoTime();
         double totalTime = (double) (endTime - startTime) / 1000000000;
