@@ -20,6 +20,9 @@ class Util {
      * @return Returns true only if numb is prime
      */
     static boolean isPrime(long numb){
+        if( numb == 1){
+            return false;
+        }
 
         if( numb == 2){
             return true;
