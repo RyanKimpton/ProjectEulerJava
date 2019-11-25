@@ -1,6 +1,5 @@
 package com.nationwide;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemThirtyNine implements Runnable {
@@ -14,7 +13,7 @@ public class ProblemThirtyNine implements Runnable {
         int[] frequencies = new int[1000];
         int max = 0;
         int index = 0;
-        List<Integer> factors = new ArrayList<>();
+        List<Integer> factors;
 
         for( int r = 2; r < 250; r += 2){
             int s;
@@ -41,8 +40,4 @@ public class ProblemThirtyNine implements Runnable {
 
         value = index;
     }
-
-
-
-
 }
