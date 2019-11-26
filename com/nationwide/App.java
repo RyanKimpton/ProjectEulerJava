@@ -210,6 +210,6 @@ public class App {
 
         long endTime = System.nanoTime();
         double totalTime = (double) (endTime - startTime) / 1000000000;
-        System.out.println("Time to run is: " + totalTime + " seconds");
+        System.out.println("Total time to run is: " + totalTime + " seconds");
     }
 }

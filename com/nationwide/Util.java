@@ -150,10 +150,14 @@ class Util {
         List<Integer> primes = new ArrayList<>();
         boolean[] prime = new boolean[max+1];
 
+        //Set all values in the prime array to be prime;
         for(int i=0;i<max;i++)
             prime[i] = true;
 
+
         for(int p = 2; p*p <=max; p++){
+            //If the number being checked is prime then remove all multiples from the sieve
+            //Otherwise all its multiples are already removed and do not need to be checked again
             if(prime[p]){
                 for(int i = p*p; i <= max; i += p) {
                     prime[i] = false;
@@ -161,6 +165,7 @@ class Util {
             }
         }
 
+        //If index in the prime array is true then send it to the List to return
         for(int i = 2; i <= max; i++) {
             if(prime[i]){
                 primes.add(i);
