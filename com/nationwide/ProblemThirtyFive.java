@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-//TODO Performance improvements
 public class ProblemThirtyFive implements Runnable {
     private int value;
 

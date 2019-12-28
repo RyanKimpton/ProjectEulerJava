@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//TODO performance improvements
 public class ProblemThirtyTwo implements Runnable {
     private int value;
 
@@ -16,8 +15,23 @@ public class ProblemThirtyTwo implements Runnable {
         int sum = 0;
         List<Integer> added = new ArrayList<>();
 
-        for( int mult1 = 1; mult1 < 9876; mult1++){
+        for( int mult1 = 2; mult1 < 9876; mult1++){
             for( int mult2 = mult1; mult2 < 9876; mult2++){
+                boolean cont = true;
+
+                if(Util.length(mult1) == 1 && Util.length(mult2) == 4){
+                    cont = false;
+                }
+
+                if(Util.length(mult1) == 2 && Util.length(mult2) == 3){
+                    cont = false;
+                }
+
+                if(cont){
+                    continue;
+                }
+
+
                 int total = mult1 * mult2;
                 //String representation for checking if it is pandigital
                 String niner = "" + total + mult1 + mult2;
