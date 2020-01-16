@@ -451,4 +451,104 @@ class Util {
             }
         }
     }
+
+    private static int[] swap(int data[], int left, int right){
+
+        // Swap the data
+        int temp = data[left];
+        data[left] = data[right];
+        data[right] = temp;
+
+        // Return the updated array
+        return data;
+    }
+
+    private static int[] reverse(int[] data, int left, int right){
+
+        // Reverse the sub-array
+        while (left < right) {
+            int temp = data[left];
+            data[left++] = data[right];
+            data[right--] = temp;
+        }
+
+        // Return the updated array
+        return data;
+    }
+
+    private static int[] findNextPermutation(int[] data){
+
+        // If the given dataset is empty
+        // or contains only one element
+        // next_permutation is not possible
+
+        int last = data.length - 2;
+
+        // find the longest non-increasing suffix
+        // and find the pivot
+        while (last >= 0) {
+            if (data[last] < data[last + 1]) {
+                break;
+            }
+            last--;
+        }
+
+
+        int nextGreater = data.length - 1;
+
+        // Find the rightmost successor to the pivot
+        for (int i = data.length - 1; i > last; i--) {
+            if (data[i] > data[last]) {
+                nextGreater = i;
+                break;
+            }
+        }
+
+        // Swap the successor and the pivot
+        data = swap(data, nextGreater, last);
+
+        // Reverse the suffix
+        data = reverse(data, last + 1, data.length - 1);
+
+        // Return true as the next_permutation is done
+        return data;
+    }
+
+    static long[] allPandigitals(int n){
+        int size = Util.smallFactorial(n+1)-Util.smallFactorial(n);
+        int nextNumber = 0;
+
+        long[] pandigitals = new long[size];
+        int[] digits = new int[n+1];
+
+        digits[0] = 1;
+        digits[1] = 0;
+
+        for(int i = 2; i < n+1; i++){
+            digits[i] = i;
+        }
+
+
+        for(int j = 0; j < n+1; j++){
+            nextNumber *= 10;
+            nextNumber += digits[j];
+        }
+
+        pandigitals[0] = nextNumber;
+
+        for(int i = 0; i < size-1; i++){
+            digits = Util.findNextPermutation(digits);
+
+            nextNumber = 0;
+
+            for(int j = 0; j < n+1; j++){
+                nextNumber *= 10;
+                nextNumber += digits[j];
+            }
+
+            pandigitals[i] = nextNumber;
+        }
+
+        return pandigitals;
+    }
 }

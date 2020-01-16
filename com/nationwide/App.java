@@ -208,8 +208,11 @@ public class App {
         thread39.join();
         System.out.println("Problem 40: " + problemForty.getValue());
 
+
         long endTime = System.nanoTime();
         double totalTime = (double) (endTime - startTime) / 1000000000;
         System.out.println("Total time to run is: " + totalTime + " seconds");
+
+
     }
 }
