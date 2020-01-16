@@ -516,7 +516,7 @@ class Util {
 
     static long[] allPandigitals(int n){
         int size = Util.smallFactorial(n+1)-Util.smallFactorial(n);
-        int nextNumber = 0;
+        long nextNumber = 0;
 
         long[] pandigitals = new long[size];
         int[] digits = new int[n+1];
@@ -547,6 +547,7 @@ class Util {
             }
 
             pandigitals[i] = nextNumber;
+
         }
 
         return pandigitals;

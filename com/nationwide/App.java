@@ -31,6 +31,7 @@ public class App {
         ProblemTwentyOne problemTwentyOne = new ProblemTwentyOne();
         ProblemTwentyTwo problemTwentyTwo = new ProblemTwentyTwo();
         ProblemTwentyThree problemTwentyThree = new ProblemTwentyThree();
+        ProblemTwentryFour problemTwentryFour = new ProblemTwentryFour();
         ProblemTwentyFive problemTwentyFive = new ProblemTwentyFive();
         ProblemTwentySix problemTwentySix = new ProblemTwentySix();
         ProblemTwentySeven problemTwentySeven = new ProblemTwentySeven();
@@ -71,6 +72,7 @@ public class App {
         Thread thread20 = new Thread(problemTwentyOne);
         Thread thread21 = new Thread(problemTwentyTwo);
         Thread thread22 = new Thread(problemTwentyThree);
+        Thread thread23 = new Thread(problemTwentryFour);
         Thread thread24 = new Thread(problemTwentyFive);
         Thread thread25 = new Thread(problemTwentySix);
         Thread thread26 = new Thread(problemTwentySeven);
@@ -111,6 +113,7 @@ public class App {
         thread20.start();
         thread21.start();
         thread22.start();
+        thread23.start();
         thread24.start();
         thread25.start();
         thread26.start();
@@ -175,6 +178,8 @@ public class App {
         System.out.println("Problem 22: " + problemTwentyTwo.getValue());
         thread22.join();
         System.out.println("Problem 23: " + problemTwentyThree.getValue());
+        thread23.join();
+        System.out.println("Problem 24: " + problemTwentryFour.getValue());
         thread24.join();
         System.out.println("Problem 25: " + problemTwentyFive.getValue());
         thread25.join();
