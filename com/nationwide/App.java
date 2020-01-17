@@ -48,6 +48,7 @@ public class App {
         ProblemThirtyEight problemThirtyEight = new ProblemThirtyEight();
         ProblemThirtyNine problemThirtyNine = new ProblemThirtyNine();
         ProblemForty problemForty = new ProblemForty();
+        ProblemFortyThree problemFortyThree = new ProblemFortyThree();
 
         Thread thread = new Thread(problemOne);
         Thread thread1 = new Thread(problemTwo);
@@ -89,6 +90,7 @@ public class App {
         Thread thread37 = new Thread(problemThirtyEight);
         Thread thread38 = new Thread(problemThirtyNine);
         Thread thread39 = new Thread(problemForty);
+        Thread thread42 = new Thread(problemFortyThree);
 
         thread.start();
         thread1.start();
@@ -130,6 +132,7 @@ public class App {
         thread37.start();
         thread38.start();
         thread39.start();
+        thread42.start();
 
 
         thread.join();
@@ -212,6 +215,8 @@ public class App {
         System.out.println("Problem 39: " + problemThirtyNine.getValue());
         thread39.join();
         System.out.println("Problem 40: " + problemForty.getValue());
+        thread42.join();
+        System.out.println("Problem 43: " + problemFortyThree.getValue());
 
 
         long endTime = System.nanoTime();

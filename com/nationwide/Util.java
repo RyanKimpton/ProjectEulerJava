@@ -552,4 +552,42 @@ class Util {
 
         return pandigitals;
     }
+
+    static long[] allPandigitalsZero(int n){
+        int size = Util.smallFactorial(n+1);
+        long nextNumber = 0;
+
+        long[] pandigitals = new long[size];
+        int[] digits = new int[n+1];
+
+        for(int i = 0; i < n+1; i++){
+            digits[i] = i;
+        }
+
+        nextNumber = joiner(digits);
+
+        pandigitals[0] = nextNumber;
+
+        for(int i = 0; i < size-1; i++){
+            digits = Util.findNextPermutation(digits);
+
+            nextNumber = joiner(digits);
+
+            pandigitals[i+1] = nextNumber;
+
+        }
+
+        return pandigitals;
+    }
+
+    static long joiner(int[] numbers){
+        long value = 0;
+
+        for (int number : numbers) {
+            value *= 10;
+            value += number;
+        }
+
+        return value;
+    }
 }
