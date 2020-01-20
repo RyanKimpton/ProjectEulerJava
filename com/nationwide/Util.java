@@ -352,7 +352,7 @@ class Util {
         minusPhi = phi.multiply(new BigDecimal(-1));
         minusPhiN = (new BigDecimal(1)).divide(minusPhi.pow(n), 10, RoundingMode.HALF_UP);
 
-        return (phiN.subtract(minusPhiN)).divide(new BigDecimal(Math.sqrt(5)), RoundingMode.HALF_UP).round(new MathContext(1, RoundingMode.HALF_UP));
+        return (phiN.subtract(minusPhiN)).divide(BigDecimal.valueOf(Math.sqrt(5)), RoundingMode.HALF_UP).round(new MathContext(1, RoundingMode.HALF_UP));
     }
 
     static int decimalCycleLength(int n){
@@ -452,7 +452,7 @@ class Util {
         }
     }
 
-    private static int[] swap(int data[], int left, int right){
+    private static void swap(int[] data, int left, int right){
 
         // Swap the data
         int temp = data[left];
@@ -460,10 +460,9 @@ class Util {
         data[right] = temp;
 
         // Return the updated array
-        return data;
     }
 
-    private static int[] reverse(int[] data, int left, int right){
+    private static void reverse(int[] data, int left, int right){
 
         // Reverse the sub-array
         while (left < right) {
@@ -473,7 +472,6 @@ class Util {
         }
 
         // Return the updated array
-        return data;
     }
 
     private static int[] findNextPermutation(int[] data){
@@ -505,10 +503,10 @@ class Util {
         }
 
         // Swap the successor and the pivot
-        data = swap(data, nextGreater, last);
+        swap(data, nextGreater, last);
 
         // Reverse the suffix
-        data = reverse(data, last + 1, data.length - 1);
+        reverse(data, last + 1, data.length - 1);
 
         // Return true as the next_permutation is done
         return data;
@@ -537,7 +535,7 @@ class Util {
         pandigitals[0] = nextNumber;
 
         for(int i = 0; i < size-1; i++){
-            digits = Util.findNextPermutation(digits);
+            Util.findNextPermutation(digits);
 
             nextNumber = 0;
 
@@ -569,7 +567,7 @@ class Util {
         pandigitals[0] = nextNumber;
 
         for(int i = 0; i < size-1; i++){
-            digits = Util.findNextPermutation(digits);
+            Util.findNextPermutation(digits);
 
             nextNumber = joiner(digits);
 
@@ -589,5 +587,10 @@ class Util {
         }
 
         return value;
+    }
+
+    static boolean isPentagonal(double penta){
+        double penTest = (Math.sqrt(1 + 24 * penta) + 1.0) / 6.0;
+        return penTest == ((int)penTest);
     }
 }
