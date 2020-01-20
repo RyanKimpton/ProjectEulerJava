@@ -50,6 +50,7 @@ public class App {
         ProblemForty problemForty = new ProblemForty();
         ProblemFortyThree problemFortyThree = new ProblemFortyThree();
         ProblemFortyFour problemFortyFour = new ProblemFortyFour();
+        ProblemFortyFive problemFortyFive = new ProblemFortyFive();
 
         Thread thread = new Thread(problemOne);
         Thread thread1 = new Thread(problemTwo);
@@ -93,6 +94,7 @@ public class App {
         Thread thread39 = new Thread(problemForty);
         Thread thread42 = new Thread(problemFortyThree);
         Thread thread43 = new Thread(problemFortyFour);
+        Thread thread44 = new Thread(problemFortyFive);
 
         thread.start();
         thread1.start();
@@ -136,6 +138,7 @@ public class App {
         thread39.start();
         thread42.start();
         thread43.start();
+        thread44.start();
 
 
         thread.join();
@@ -222,6 +225,8 @@ public class App {
         System.out.println("Problem 43: " + problemFortyThree.getValue());
         thread43.join();
         System.out.println("Problem 44: " + problemFortyFour.getValue());
+        thread44.join();
+        System.out.printf("Problem 45: %.0f\n", problemFortyFive.getValue());
 
 
 

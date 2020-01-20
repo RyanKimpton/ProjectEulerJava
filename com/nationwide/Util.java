@@ -591,6 +591,11 @@ class Util {
 
     static boolean isPentagonal(double penta){
         double penTest = (Math.sqrt(1 + 24 * penta) + 1.0) / 6.0;
-        return penTest == ((int)penTest);
+        return penTest == ((int) penTest);
+    }
+
+    static boolean isTriangular(double trian){
+        double triTest = Math.sqrt(8 * trian + 1);
+        return triTest == ((int) triTest);
     }
 }
