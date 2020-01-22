@@ -1,6 +1,5 @@
 package com.nationwide;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +12,6 @@ public class ProblemFortySix implements Runnable {
     }
 
     public void run() {
-        boolean notFound = true;
         int currentNumber = 9;
         int currentPrime = 2;
         int counter = 0;
@@ -23,7 +21,7 @@ public class ProblemFortySix implements Runnable {
 
         //Run until the number is found
         outer:
-        while(notFound){
+        while(true){
             System.out.println(currentNumber);
             //Is currentNumber prime
             if(!(primes.contains(currentNumber))){

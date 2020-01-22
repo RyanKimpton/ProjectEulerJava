@@ -60,7 +60,7 @@ class Util {
     }
 
     /**
-     * Function that will return a list of all prime factors of a number 1 is not included, numb if prime will be
+     * Function that will return a list of all prime factors of a number 1 is not included, number -if prime- will be
      * @param numb the number to find the prime factors of
      * @return Returns a List of all prime factors
      */
