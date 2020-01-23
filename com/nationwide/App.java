@@ -54,6 +54,7 @@ public class App {
         ProblemFortySix problemFortySix = new ProblemFortySix();
         ProblemFortySeven problemFortySeven = new ProblemFortySeven();
         ProblemFortyEight problemFortyEight = new ProblemFortyEight();
+        ProblemFortyNine problemFortyNine = new ProblemFortyNine();
 
         Thread thread = new Thread(problemOne);
         Thread thread1 = new Thread(problemTwo);
@@ -101,6 +102,7 @@ public class App {
         Thread thread45 = new Thread(problemFortySix);
         Thread thread46 = new Thread(problemFortySeven);
         Thread thread47 = new Thread(problemFortyEight);
+        Thread thread48 = new Thread(problemFortyNine);
 
         thread.start();
         thread1.start();
@@ -148,6 +150,7 @@ public class App {
         thread45.start();
         thread46.start();
         thread47.start();
+        thread48.start();
 
 
         thread.join();
@@ -242,6 +245,8 @@ public class App {
         System.out.println("Problem 47: " + problemFortySeven.getValue());
         thread47.join();
         System.out.println("Problem 48: " + problemFortyEight.getValue());
+        thread48.join();
+        System.out.println("Problem 49: " + problemFortyNine.getValue());
 
 
 
